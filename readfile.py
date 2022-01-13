@@ -29,9 +29,20 @@ try:
     with open('Sekolah_Lookup.csv') as csvfile:
         reader = csv.DictReader(csvfile)
         csv_data = {row['school_code'] for row in reader}
-    print(csv_data)
+    # print(csv_data)
 
-    #
+    #read from database
+    selectSchool = "select * from app_schools"
+
+    cur.execute(selectSchool)
+    print("Selecting rows from mobile table using cursor.fetchall")
+    schoolRecords = cur.fetchall()
+
+    print("Print each row and it's columns values")
+    for row in schoolRecords:
+        print("code = ", row[1], "name = ", row[2])
+
+        
 
     # col_list = ['school_code', 'name', 'type', 'phone', 'address', 'postcode', 'state', 'city', 'ppd', 'location', 'integration']
     # df = pandas.read_csv("Sekolah_Lookup.csv", usecols=col_list)
