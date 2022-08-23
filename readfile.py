@@ -5,7 +5,7 @@ import csv
 try:
     conn = psycopg2.connect(
         host="localhost",
-        database="spmpambilan",
+        database="e_admission",
         user="postgres",
         password="password")
 
@@ -47,3 +47,11 @@ finally:
         cur.close()
         conn.close()
         print("PostgreSQL connection is closed")
+
+#import school data from spmp
+
+#compare csv and school spmp
+
+#store in csv file if compare is not match
+
+#update spmp school using eadmission school
